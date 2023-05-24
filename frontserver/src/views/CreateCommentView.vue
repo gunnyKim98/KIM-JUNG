@@ -1,0 +1,19 @@
+<template>
+  <div>
+    <form action="">
+      <label></label>
+      <input>
+      <button>댓글 작성</button>
+    </form>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "CreateCommentView"
+}
+</script>
+
+<style scoped>
+
+</style>
