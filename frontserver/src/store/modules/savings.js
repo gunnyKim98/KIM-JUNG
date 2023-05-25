@@ -11,7 +11,9 @@ const savings = {
     savingsList: []
   },
   getters:{
-
+    getSavingList(state){
+      return state.savingsList
+    }
   },
   mutations:{
     SAVING_PRODUCTS(state, data) {
@@ -72,6 +74,7 @@ const savings = {
       })
           .then((res) => {
             context.commit('SAVING_OPTIONS', res.data)
+            context.dispatch('makeSavingsList')
           })
           .catch((err) => {
             console.log(err)

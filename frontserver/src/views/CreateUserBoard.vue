@@ -90,5 +90,10 @@ export default {
   margin: 0 auto;
   justify-content: center;
   align-items: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-top: 100px ;
+  margin-bottom: 100px ;
 }
 </style>

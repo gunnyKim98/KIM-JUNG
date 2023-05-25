@@ -93,7 +93,8 @@ export default {
     ...mapGetters(['getUserInfo']),
     articles() {
       return this.$store.getters.news_sendArticles
-    }
+    },
+    ...mapGetters(['isLogin'])
   },
   created() {
     this.getNewsArticles()
@@ -103,6 +104,15 @@ export default {
       this.$store.dispatch('news_getGet')
     },
     newArticle() {
+      if (!this.isLogin){
+        alert('로그인이 필요한 서비스입니다.')
+        this.$router.push('/login')
+        return
+      }
+      if (!this.getUserInfo.is_superuser && !this.getUserInfo.is_staff){
+        alert('일반유저는 뉴스 게시글을 작성할 수 없습니다.')
+        return
+      }  
       this.$router.push('/community/newsboard/create')
     },
     makeSearchCategory(){

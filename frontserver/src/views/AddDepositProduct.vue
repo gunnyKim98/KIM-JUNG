@@ -1,16 +1,21 @@
 <template>
-  <div>
-    <div>
-      <h1>예금 상품 등록</h1>
-    </div>
-    <form>
-      <p>상품명: {{ title }}</p>
-      <p>판매자: {{ bank }}</p>
-      <p>가입액: <input type="number" name="total" id="total" v-model="total"> 만원</p>
-      <p>가입자: {{ getUserInfo.username }}</p>
-      <p>연령: {{ getUserInfo.age }}</p>
-      <p>소득: {{ getUserInfo.earn }}</p>
-      <button @click="postDepositProduct">상품 가입</button>
+  <div class="container">
+    <h3 style="margin-bottom: 10px">예금 상품 등록</h3>
+    <form @submit.prevent="postDepositProduct">
+      <p>상품명 : {{ title }}</p>
+      <p>판매자 : {{ bank }}</p>
+
+      <p><label class="label" for="password2"> 가입액 : </label>
+      <input type="number" name="total" id="total" v-model="total" style="margin-left: 10px;"> (만원)</p>
+
+      <p>가입자 : {{ getUserInfo.username }}</p>
+      <p>나이 : {{ getUserInfo.age }}</p>
+      <p>연간 소득 : {{ getUserInfo.earn }} 만원</p>
+
+      <br>
+      <div class="text-center" style="margin-top:10px">
+       <input class="btn btn-outline-dark" type="submit" value="상품가입" >
+      </div>
     </form>
   </div>
 </template>
@@ -79,5 +84,14 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-top: 100px ;
+  margin-bottom: 100px ;
+}
 
 </style>

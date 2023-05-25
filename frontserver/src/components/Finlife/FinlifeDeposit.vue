@@ -176,6 +176,7 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex";
 
 
 export default {
@@ -207,7 +208,7 @@ export default {
     }
   },
   computed: {
-
+    ...mapGetters(['isLogin'])
   },
   methods:{
     makeSearchList(){
@@ -272,6 +273,11 @@ export default {
       this.$store.dispatch('searchBank', bank)
     },
     addProductDeposit(title, bank) {
+      if (!this.isLogin){
+        alert('로그인이 필요한 서비스입니다.')
+        this.$router.push('/login')
+        return
+      }
       console.log(title)
       console.log(bank)
       this.$router.push(`/addProduct_deposit/${title}/${bank}/`)

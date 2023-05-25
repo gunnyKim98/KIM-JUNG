@@ -144,7 +144,7 @@ def exchange_money(request):
                 country = '유럽'
 
         if country == '일본' or country == '인도네시아':
-            rate = str(float(datas[i]['deal_bas_r'].replace(',',''))/100)
+            rate = str(round(float(datas[i]['deal_bas_r'].replace(',',''))/100,3))
         else:
             rate = datas[i]['deal_bas_r'].replace(',','')
 

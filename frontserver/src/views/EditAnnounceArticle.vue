@@ -1,18 +1,18 @@
 <template>
-  <div>
-    <form>
-      <p>제목 : </p>
-      <input type="text" v-model="title">
-      <br>
-      <p>말머리 :  </p>
-      <input type="text" v-model="category">
-      <br>
-      <p>내용 : </p>
-      <textarea id="content" cols="30" rows="10" v-model="content"></textarea>
-      <br>
-      <button @click="putAnnoArticle">수정하기</button>
-    </form>
+<div class="container">
+    <h2>공지사항 수정</h2>
+      <b-form @submit.prevent="putAnnoArticle">
+        <b-form-group label="제목">
+          <b-form-input v-model.trim="title"></b-form-input>
+        </b-form-group>
+        <b-form-group label="내용">
+          <b-form-textarea v-model="content" rows="10"></b-form-textarea>
+        </b-form-group>
+        <b-button class="btn btn-outline-dark" @click="putAnnoArticle" variant="light">수정 완료</b-button>
+      </b-form>
+
   </div>
+
 </template>
 
 <script>
@@ -86,5 +86,12 @@ export default {
 </script>
 
 <style scoped>
-
+.container {
+  width: 600px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px ;
+  margin-bottom: 100px ;
+}
 </style>

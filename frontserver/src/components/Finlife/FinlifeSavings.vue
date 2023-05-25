@@ -174,6 +174,8 @@
 
 
 <script>
+import {mapGetters} from "vuex";
+
 export default {
   name: 'FinlifeSavings',
   props:{
@@ -197,6 +199,9 @@ export default {
       selectedProduct: null, // 선택된 상품 정보
       selectedProductEtcnote: null
     }
+  },
+  computed: {
+    ...mapGetters(['isLogin'])
   },
   methods:{
     makeSearchList(){
@@ -259,6 +264,11 @@ export default {
       this.$store.dispatch('searchBank', bank)
     },
     addProductSaving(title, bank) {
+      if (!this.isLogin){
+        alert('로그인이 필요한 서비스입니다.')
+        this.$router.push('/login')
+        return
+      }
       console.log(title)
       console.log(bank)
       this.$router.push(`/addProduct_saving/${title}/${bank}/`)

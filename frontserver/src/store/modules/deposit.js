@@ -10,7 +10,9 @@ const deposit = {
     depositList: []
   },
   getters:{
-
+    getDepositList(state){
+      return state.depositList
+    }
   },
   mutations:{
     DEPOSIT_PRODUCTS(state, data) {
@@ -28,9 +30,9 @@ const deposit = {
             if(state.databaseDepositOption[j]['save_trm'] == 6){
               tempObject['6개월'] = state.databaseDepositOption[j]
             } else if (state.databaseDepositOption[j]['save_trm'] == 12){
-                tempObject['12개월'] = state.databaseDepositOption[j]
+              tempObject['12개월'] = state.databaseDepositOption[j]
             } else if (state.databaseDepositOption[j]['save_trm'] == 24){
-                tempObject['24개월'] = state.databaseDepositOption[j]
+              tempObject['24개월'] = state.databaseDepositOption[j]
             } else if (state.databaseDepositOption[j]['save_trm'] == 36){
               tempObject['36개월'] = state.databaseDepositOption[j]
             }
@@ -38,7 +40,7 @@ const deposit = {
         }
         state.depositList.push(tempObject)
       }
-    
+
     }
   },
   actions:{
@@ -47,12 +49,12 @@ const deposit = {
         method: 'get',
         url: `${baseURL}/${depositURL}/`,
       })
-        .then((res) => {
-          context.commit('DEPOSIT_PRODUCTS', res.data)
-        })
-        .catch((err) => {
-          console.log(err)
-        })
+          .then((res) => {
+            context.commit('DEPOSIT_PRODUCTS', res.data)
+          })
+          .catch((err) => {
+            console.log(err)
+          })
     },
     depositOption(context) {
       axios({
@@ -61,6 +63,7 @@ const deposit = {
       })
           .then((res) => {
             context.commit('DEPOSIT_OPTIONS', res.data)
+            context.dispatch('makeDepositList')
           })
           .catch((err) => {
             console.log(err)

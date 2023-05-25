@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <h3 style="margin:10px;">공지사항</h3>
-    
       <div style="white-space: nowrap; display: flex;">
         <div style="flex: 1;">
           <button disabled class="btn btn-outline-dark" @click="$router.push('/community/announce')">공지사항</button>
@@ -93,7 +92,8 @@ export default {
     ...mapGetters(['getUserInfo']),
     articles() {
       return this.$store.getters.anno_sendArticles
-    }
+    },
+    ...mapGetters(['isLogin'])
   },
   created() {
     this.getAnnoArticles()
@@ -105,6 +105,15 @@ export default {
 
     },
     newArticle() {
+      if (!this.isLogin){
+        alert('로그인이 필요한 서비스입니다.')
+        this.$router.push('/login')
+        return
+      }
+      if (!this.getUserInfo.is_superuser && !this.getUserInfo.is_staff){
+        alert('일반유저는 공지사항을 작성할 수 없습니다.')
+        return
+      }  
       this.$router.push('/community/announce/create')
     },
     makeSearchCategory(){

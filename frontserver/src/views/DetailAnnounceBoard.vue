@@ -102,6 +102,8 @@ export default {
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 10px;
+  margin-top: 100px ;
+  margin-bottom: 100px ;
 }
 
 .contentbox {

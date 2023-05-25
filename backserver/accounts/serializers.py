@@ -119,3 +119,15 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         # fields = ['id', 'username', 'nickname', 'first_name', 'last_name', 'age', 'sex', 'earn', 'is_superuser', 'my_deposit', 'my_saving']
         fields = '__all__'
+
+
+class UserDepositProducts(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['my_deposit', ]
+
+
+class UserSavingProducts(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['my_saving', ]

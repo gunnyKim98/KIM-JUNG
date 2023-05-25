@@ -76,6 +76,8 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex";
+
 export default {
   name: "UserBoard",
   data(){
@@ -90,7 +92,8 @@ export default {
   computed: {
     articles() {
       return this.$store.getters.sendArticles
-    }
+    },
+    ...mapGetters(['isLogin'])
   },
   created() {
     this.getArticles()
@@ -100,6 +103,11 @@ export default {
       this.$store.dispatch('getGet')
     },
     newArticle() {
+      if (!this.isLogin){
+        alert('로그인이 필요한 서비스입니다.')
+        this.$router.push('/login')
+        return
+      }
       this.$router.push('/community/userboard/create')
     },
     makeSearchCategory(){
