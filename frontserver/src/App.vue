@@ -9,7 +9,9 @@
           <b-nav-item class="nomargin" @click="$router.push('/searchmap')"><img  src="@/assets/main/searchmaplogo.png" alt="" class="img-fluid nomargin"></b-nav-item>
           <b-nav-item class="nomargin" @click="$router.push('/community/userboard')"><img  src="@/assets/main/communitylogo.png" alt="" class="img-fluid nomargin"></b-nav-item>
 
-          <p id="hellouser" class="ml-auto"> 안녕하세요 {{ getUserInfo.username }} 님!</p>
+          <b-col class="text-right">
+            <p id="hellouser">안녕하세요 {{ getUserInfo.nickname }} 님!</p>
+          </b-col>
 
           <b-nav-item class="nomargin" @click="$router.push('/profile')"><img  src="@/assets/main/editprofilelogo.png" alt="" class="img-fluid nomargin"></b-nav-item>
           <b-nav-item class="nomargin" @click="logout"><img  src="@/assets/main/signoutlogo.png" alt="" class="img-fluid nomargin"></b-nav-item>
@@ -151,7 +153,10 @@ footer p span {
 }
 
 #hellouser {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 40px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+
 }
 </style>

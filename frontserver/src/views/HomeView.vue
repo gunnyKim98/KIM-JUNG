@@ -102,7 +102,7 @@ export default {
           nextrouter: 'ratecalcul'
         },
         {
-          imageSrc: require('@/assets/logo.png'),
+          imageSrc: require('@/assets/communitycarousel.png'),
           title: '다른 사람들은 어떻게 자산 관리를 할까?',
           description: '다른 유저들과 소통해보세요!',
           nextrouter: 'community'
@@ -115,7 +115,7 @@ export default {
   mounted() {
     setInterval(() => {
       this.activeIndex = (this.activeIndex + 1) % this.carouselItems.length;
-    }, 8000);
+    }, 5000);
   },
   computed: {
     ...mapGetters(['isLogin']),
