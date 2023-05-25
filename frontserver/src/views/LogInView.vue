@@ -12,6 +12,8 @@
         <input class="btn btn-outline-dark" type="submit" value="로그인">
       </div>
     </form>
+
+
   </div>
 </template>
 
@@ -35,7 +37,8 @@ export default {
 
       this.$store.dispatch('login', payload)
 
-    }
+    },
+
   }
 }
 </script>

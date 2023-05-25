@@ -33,7 +33,7 @@
           <p>도로명 주소 : {{ selectedPlace.road_address_name }}</p>
           <p>자세히보기: <a :href="selectedPlace.place_url">{{ selectedPlace.place_url }}</a> </p>
 
-          <button @click="closeModal">Close</button>
+          <button class="btn btn-outline-dark" @click="closeModal">Close</button>
         </div>
       </div>
     </div>
